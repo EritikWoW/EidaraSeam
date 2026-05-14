@@ -1,0 +1,1160 @@
+[gd_scene load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/eidara_world.gd" id="1_0x30p"]
+[ext_resource type="PackedScene" path="res://subway/subway.tscn" id="2_9j0cx"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_0c0w6"]
+inner_radius = 0.08
+outer_radius = 0.72
+rings = 48
+ring_segments = 24
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_portal_ring"]
+transparency = 1
+albedo_color = Color(0.85098, 0.768627, 1, 0.9)
+emission_enabled = true
+emission = Color(0.611765, 0.380392, 1, 1)
+emission_energy_multiplier = 3.1
+roughness = 0.18
+cull_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_9f6ru"]
+size = Vector2(1.05, 2.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_portal_core"]
+transparency = 1
+albedo_color = Color(0.356863, 0.282353, 0.6, 0.64)
+emission_enabled = true
+emission = Color(0.564706, 0.435294, 1, 1)
+emission_energy_multiplier = 2.6
+roughness = 0.0
+cull_mode = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_ijpm8"]
+radius = 0.28
+height = 0.56
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fracture"]
+albedo_color = Color(0.486275, 0.392157, 0.780392, 1)
+emission_enabled = true
+emission = Color(0.627451, 0.447059, 1, 1)
+emission_energy_multiplier = 2.4
+roughness = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ivqv"]
+size = Vector3(1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_board"]
+albedo_color = Color(0.0901961, 0.101961, 0.141176, 1)
+roughness = 0.76
+metallic = 0.08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_accent"]
+albedo_color = Color(0.705882, 0.458824, 0.188235, 1)
+emission_enabled = true
+emission = Color(0.705882, 0.458824, 0.188235, 1)
+emission_energy_multiplier = 0.72
+roughness = 0.44
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_signal"]
+albedo_color = Color(0.529412, 0.658824, 0.815686, 1)
+emission_enabled = true
+emission = Color(0.545098, 0.760784, 1, 1)
+emission_energy_multiplier = 0.3
+roughness = 0.28
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_concrete"]
+albedo_color = Color(0.156863, 0.168627, 0.184314, 1)
+roughness = 0.94
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asphalt"]
+albedo_color = Color(0.0745098, 0.0784314, 0.0901961, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_figure"]
+albedo_color = Color(0.0117647, 0.0117647, 0.0196078, 1)
+emission_enabled = true
+emission = Color(0.211765, 0.0862745, 0.0862745, 1)
+emission_energy_multiplier = 0.4
+roughness = 0.9
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0yadm"]
+size = Vector3(2, 2, 2)
+
+[node name="EidaraWorld" type="Node3D"]
+script = ExtResource("1_0x30p")
+
+[node name="Metro" parent="." instance=ExtResource("2_9j0cx")]
+
+[node name="WorldAnchors" type="Node3D" parent="."]
+
+[node name="PlatformBranding" type="Node3D" parent="WorldAnchors"]
+
+[node name="HeaderSign" type="Node3D" parent="WorldAnchors/PlatformBranding"]
+
+[node name="Panel" type="MeshInstance3D" parent="WorldAnchors/PlatformBranding/HeaderSign"]
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(4.8, 1.3, 0.08)
+
+[node name="Title" type="Label3D" parent="WorldAnchors/PlatformBranding/HeaderSign"]
+position = Vector3(0, 0.18, 0.09)
+font_size = 84
+modulate = Color(0.968627, 0.878431, 0.690196, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 10
+text = "PLATFORM 7"
+
+[node name="Subtitle" type="Label3D" parent="WorldAnchors/PlatformBranding/HeaderSign"]
+position = Vector3(0, -0.28, 0.09)
+font_size = 38
+modulate = Color(0.756863, 0.615686, 0.337255, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 6
+text = "EIDARA // ECHO // FRACTURE"
+
+[node name="GamePoster" type="Node3D" parent="WorldAnchors/PlatformBranding"]
+
+[node name="Panel" type="MeshInstance3D" parent="WorldAnchors/PlatformBranding/GamePoster"]
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(1.7, 2.3, 0.08)
+
+[node name="Title" type="Label3D" parent="WorldAnchors/PlatformBranding/GamePoster"]
+position = Vector3(0, 0.62, 0.09)
+font_size = 58
+modulate = Color(0.984314, 0.913725, 0.760784, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 8
+text = "EIDARA"
+
+[node name="Body" type="Label3D" parent="WorldAnchors/PlatformBranding/GamePoster"]
+position = Vector3(0, -0.28, 0.09)
+font_size = 28
+modulate = Color(0.72549, 0.611765, 0.396078, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 5
+text = "THE CITY HEARS YOU"
+
+[node name="BookPoster" type="Node3D" parent="WorldAnchors/PlatformBranding"]
+
+[node name="Panel" type="MeshInstance3D" parent="WorldAnchors/PlatformBranding/BookPoster"]
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(1.9, 2.4, 0.08)
+
+[node name="Title" type="Label3D" parent="WorldAnchors/PlatformBranding/BookPoster"]
+position = Vector3(0, 0.52, 0.09)
+font_size = 44
+modulate = Color(0.980392, 0.921569, 0.796078, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 7
+text = "ECHO // FRACTURE"
+
+[node name="Body" type="Label3D" parent="WorldAnchors/PlatformBranding/BookPoster"]
+position = Vector3(0, -0.38, 0.09)
+font_size = 24
+modulate = Color(0.737255, 0.639216, 0.470588, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 4
+text = "BOOKS BECOME ROUTES"
+
+[node name="ArrivalMatrix" type="Node3D" parent="WorldAnchors/PlatformBranding"]
+
+[node name="Panel" type="MeshInstance3D" parent="WorldAnchors/PlatformBranding/ArrivalMatrix"]
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(2.4, 1.05, 0.08)
+
+[node name="Core" type="MeshInstance3D" parent="WorldAnchors/PlatformBranding/ArrivalMatrix"]
+position = Vector3(0, 0, 0.05)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_signal")
+scale = Vector3(2.18, 0.82, 0.04)
+
+[node name="Title" type="Label3D" parent="WorldAnchors/PlatformBranding/ArrivalMatrix"]
+position = Vector3(0, 0.26, 0.09)
+font_size = 24
+modulate = Color(0.94902, 0.964706, 0.988235, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 4
+text = "PLATFORM 7 // LAST SERVICE"
+
+[node name="Body" type="Label3D" parent="WorldAnchors/PlatformBranding/ArrivalMatrix"]
+position = Vector3(0, -0.06, 0.09)
+font_size = 16
+modulate = Color(0.0509804, 0.0784314, 0.12549, 1)
+outline_modulate = Color(0.780392, 0.901961, 1, 1)
+outline_size = 2
+text = "VERIS LOOP / CITY FAULT / NODE 7"
+
+[node name="Hint" type="Label3D" parent="WorldAnchors/PlatformBranding/ArrivalMatrix"]
+position = Vector3(0, -0.34, 0.09)
+font_size = 12
+modulate = Color(0.14902, 0.196078, 0.247059, 1)
+outline_modulate = Color(0.8, 0.909804, 1, 1)
+outline_size = 2
+text = "NO RETURN AFTER FRACTURE"
+
+[node name="Light" type="OmniLight3D" parent="WorldAnchors/PlatformBranding/ArrivalMatrix"]
+position = Vector3(0, 0, 0.6)
+light_color = Color(0.647059, 0.831373, 1, 1)
+light_energy = 0.0
+omni_range = 7.0
+
+[node name="PortalRig" type="Node3D" parent="WorldAnchors"]
+visible = false
+
+[node name="Ring" type="MeshInstance3D" parent="WorldAnchors/PortalRig"]
+mesh = SubResource("TorusMesh_0c0w6")
+material_override = SubResource("StandardMaterial3D_portal_ring")
+scale = Vector3(1, 1.5, 1)
+
+[node name="Core" type="MeshInstance3D" parent="WorldAnchors/PortalRig"]
+mesh = SubResource("PlaneMesh_9f6ru")
+material_override = SubResource("StandardMaterial3D_portal_core")
+
+[node name="BackCore" type="MeshInstance3D" parent="WorldAnchors/PortalRig"]
+rotation = Vector3(0, 3.14159, 0)
+mesh = SubResource("PlaneMesh_9f6ru")
+material_override = SubResource("StandardMaterial3D_portal_core")
+
+[node name="PortalLight" type="OmniLight3D" parent="WorldAnchors/PortalRig"]
+light_color = Color(0.670588, 0.529412, 1, 1)
+light_energy = 0.0
+omni_range = 5.5
+
+[node name="QuestAreas" type="Node3D" parent="WorldAnchors"]
+
+[node name="PosterA" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/PosterA"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(1.2, 1.2, 0.4)
+
+[node name="PosterB" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/PosterB"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(1.2, 1.2, 0.4)
+
+[node name="PortalArea" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/PortalArea"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(1.1, 1.5, 1.1)
+
+[node name="AnchorArea" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/AnchorArea"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(1.0, 1.1, 1.0)
+
+[node name="ExitGateArea" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/ExitGateArea"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(1.4, 1.0, 1.0)
+
+[node name="CityEntryArea" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/CityEntryArea"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(2.5, 1.2, 2.0)
+
+[node name="SignalBoxArea" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/SignalBoxArea"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(1.1, 1.1, 0.9)
+
+[node name="ScareAreaA" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/ScareAreaA"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(4.0, 1.4, 3.2)
+
+[node name="ScareAreaB" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/ScareAreaB"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(4.0, 1.4, 3.2)
+
+[node name="CityGoalArea" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/CityGoalArea"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(2.6, 1.4, 2.2)
+
+[node name="MatrixArea" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/MatrixArea"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(1.5, 1.0, 0.5)
+
+[node name="MetroScareAreaA" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/MetroScareAreaA"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(2.6, 1.3, 2.0)
+
+[node name="MetroScareAreaB" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/MetroScareAreaB"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(3.2, 1.5, 2.8)
+
+[node name="RelayAArea" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/RelayAArea"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(1.0, 1.1, 0.9)
+
+[node name="RelayBArea" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/RelayBArea"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(1.0, 1.1, 0.9)
+
+[node name="SafehouseArea" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/SafehouseArea"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(1.6, 1.2, 1.0)
+
+[node name="SafehouseLogArea" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/SafehouseLogArea"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(0.7, 0.4, 0.55)
+
+[node name="SafehouseTerminalArea" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/SafehouseTerminalArea"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(0.95, 0.9, 0.7)
+
+[node name="SafehouseMapArea" type="Area3D" parent="WorldAnchors/QuestAreas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/QuestAreas/SafehouseMapArea"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(1.6, 0.9, 0.5)
+
+[node name="WorldBuild" type="Node3D" parent="WorldAnchors"]
+
+[node name="ResonanceTrail" type="Node3D" parent="WorldAnchors/WorldBuild"]
+visible = false
+
+[node name="MarkerA" type="Node3D" parent="WorldAnchors/WorldBuild/ResonanceTrail"]
+
+[node name="Mesh" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/ResonanceTrail/MarkerA"]
+mesh = SubResource("SphereMesh_ijpm8")
+material_override = SubResource("StandardMaterial3D_fracture")
+
+[node name="Light" type="OmniLight3D" parent="WorldAnchors/WorldBuild/ResonanceTrail/MarkerA"]
+light_color = Color(0.737255, 0.631373, 1, 1)
+light_energy = 0.0
+omni_range = 4.2
+
+[node name="MarkerB" type="Node3D" parent="WorldAnchors/WorldBuild/ResonanceTrail"]
+
+[node name="Mesh" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/ResonanceTrail/MarkerB"]
+mesh = SubResource("SphereMesh_ijpm8")
+material_override = SubResource("StandardMaterial3D_fracture")
+
+[node name="Light" type="OmniLight3D" parent="WorldAnchors/WorldBuild/ResonanceTrail/MarkerB"]
+light_color = Color(0.737255, 0.631373, 1, 1)
+light_energy = 0.0
+omni_range = 4.2
+
+[node name="MarkerC" type="Node3D" parent="WorldAnchors/WorldBuild/ResonanceTrail"]
+
+[node name="Mesh" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/ResonanceTrail/MarkerC"]
+mesh = SubResource("SphereMesh_ijpm8")
+material_override = SubResource("StandardMaterial3D_fracture")
+
+[node name="Light" type="OmniLight3D" parent="WorldAnchors/WorldBuild/ResonanceTrail/MarkerC"]
+light_color = Color(0.737255, 0.631373, 1, 1)
+light_energy = 0.0
+omni_range = 4.2
+
+[node name="MetroEchoFigure" type="MeshInstance3D" parent="WorldAnchors/WorldBuild"]
+visible = false
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_figure")
+scale = Vector3(0.82, 3.0, 0.38)
+
+[node name="Light" type="OmniLight3D" parent="WorldAnchors/WorldBuild/MetroEchoFigure"]
+position = Vector3(0, 1.1, 0)
+light_color = Color(0.772549, 0.141176, 0.141176, 1)
+light_energy = 0.0
+omni_range = 4.5
+
+[node name="AnchorShard" type="Node3D" parent="WorldAnchors/WorldBuild"]
+visible = false
+
+[node name="Core" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/AnchorShard"]
+mesh = SubResource("SphereMesh_ijpm8")
+material_override = SubResource("StandardMaterial3D_fracture")
+scale = Vector3(1.2, 1.8, 1.2)
+
+[node name="Light" type="OmniLight3D" parent="WorldAnchors/WorldBuild/AnchorShard"]
+light_color = Color(0.709804, 0.564706, 1, 1)
+light_energy = 0.0
+omni_range = 4.8
+
+[node name="MetroExit" type="Node3D" parent="WorldAnchors/WorldBuild"]
+visible = false
+
+[node name="Floor" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/MetroExit"]
+position = Vector3(0, 0.05, -6)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(3.8, 0.14, 14)
+
+[node name="FrameLeft" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/MetroExit"]
+position = Vector3(-2.3, 1.6, -0.2)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(0.4, 3.4, 0.4)
+
+[node name="FrameRight" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/MetroExit"]
+position = Vector3(2.3, 1.6, -0.2)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(0.4, 3.4, 0.4)
+
+[node name="FrameTop" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/MetroExit"]
+position = Vector3(0, 3.3, -0.2)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(4.9, 0.36, 0.46)
+
+[node name="GateLeft" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/MetroExit"]
+position = Vector3(-1.05, 1.6, -0.1)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_accent")
+scale = Vector3(1.1, 2.7, 0.14)
+
+[node name="GateRight" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/MetroExit"]
+position = Vector3(1.05, 1.6, -0.1)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_accent")
+scale = Vector3(1.1, 2.7, 0.14)
+
+[node name="GateBlocker" type="StaticBody3D" parent="WorldAnchors/WorldBuild/MetroExit"]
+position = Vector3(0, 1.55, -0.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/WorldBuild/MetroExit/GateBlocker"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(1.6, 1.4, 0.35)
+
+[node name="ExitSign" type="Label3D" parent="WorldAnchors/WorldBuild/MetroExit"]
+position = Vector3(0, 3.95, -0.22)
+font_size = 38
+modulate = Color(0.972549, 0.882353, 0.631373, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 6
+text = "SERVICE EXIT // CITY ACCESS"
+
+[node name="CeilingLight" type="OmniLight3D" parent="WorldAnchors/WorldBuild/MetroExit"]
+position = Vector3(0, 3.3, -2.2)
+light_color = Color(0.866667, 0.717647, 0.447059, 1)
+light_energy = 2.0
+omni_range = 10.0
+
+[node name="CityZone" type="Node3D" parent="WorldAnchors/WorldBuild"]
+visible = false
+
+[node name="Ground" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone"]
+position = Vector3(0, 0.1, -33)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(16, 0.2, 68)
+
+[node name="Street" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone"]
+position = Vector3(0, 0.12, -33)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_asphalt")
+scale = Vector3(7, 0.08, 64)
+
+[node name="SidewalkLeft" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone"]
+position = Vector3(-6.6, 0.18, -33)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(2.2, 0.18, 64)
+
+[node name="SidewalkRight" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone"]
+position = Vector3(6.6, 0.18, -33)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(2.2, 0.18, 64)
+
+[node name="BuildingA" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone"]
+position = Vector3(-10.5, 5.5, -8)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(6.2, 11, 7.0)
+
+[node name="BuildingB" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone"]
+position = Vector3(11.0, 6.5, -14)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(7.4, 13, 9.0)
+
+[node name="BuildingC" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone"]
+position = Vector3(-12.2, 8.0, -44)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(8.0, 16.0, 10.5)
+
+[node name="BuildingD" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone"]
+position = Vector3(12.5, 7.2, -52)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(8.4, 14.4, 12.0)
+
+[node name="Billboard" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone"]
+position = Vector3(7.2, 4.0, -24)
+
+[node name="Panel" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/Billboard"]
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(2.8, 1.5, 0.08)
+
+[node name="Title" type="Label3D" parent="WorldAnchors/WorldBuild/CityZone/Billboard"]
+position = Vector3(0, 0.24, 0.09)
+font_size = 32
+modulate = Color(0.968627, 0.894118, 0.756863, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 5
+text = "ECHO // CITY FEED"
+
+[node name="Body" type="Label3D" parent="WorldAnchors/WorldBuild/CityZone/Billboard"]
+position = Vector3(0, -0.18, 0.09)
+font_size = 18
+modulate = Color(0.733333, 0.611765, 0.447059, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 3
+text = "PLATFORM 7 NEVER CLOSED"
+
+[node name="BillboardLight" type="OmniLight3D" parent="WorldAnchors/WorldBuild/CityZone/Billboard"]
+position = Vector3(0, 0.1, 0.6)
+light_color = Color(0.866667, 0.823529, 0.635294, 1)
+light_energy = 0.0
+omni_range = 8.0
+
+[node name="StreetLights" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone"]
+
+[node name="PostA" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights"]
+position = Vector3(-4.8, 0, -9.5)
+
+[node name="Pole" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights/PostA"]
+position = Vector3(0, 2.3, 0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(0.12, 4.6, 0.12)
+
+[node name="Arm" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights/PostA"]
+position = Vector3(0.42, 4.25, 0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(0.86, 0.08, 0.08)
+
+[node name="Lamp" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights/PostA"]
+position = Vector3(0.78, 3.86, 0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_accent")
+scale = Vector3(0.18, 0.28, 0.18)
+
+[node name="Light" type="OmniLight3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights/PostA"]
+position = Vector3(0.78, 3.78, 0)
+light_color = Color(0.905882, 0.788235, 0.611765, 1)
+light_energy = 0.0
+omni_range = 9.0
+
+[node name="PostB" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights"]
+position = Vector3(4.9, 0, -18.0)
+
+[node name="Pole" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights/PostB"]
+position = Vector3(0, 2.3, 0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(0.12, 4.6, 0.12)
+
+[node name="Arm" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights/PostB"]
+position = Vector3(-0.42, 4.25, 0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(0.86, 0.08, 0.08)
+
+[node name="Lamp" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights/PostB"]
+position = Vector3(-0.78, 3.86, 0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_accent")
+scale = Vector3(0.18, 0.28, 0.18)
+
+[node name="Light" type="OmniLight3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights/PostB"]
+position = Vector3(-0.78, 3.78, 0)
+light_color = Color(0.905882, 0.788235, 0.611765, 1)
+light_energy = 0.0
+omni_range = 9.0
+
+[node name="PostC" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights"]
+position = Vector3(-5.3, 0, -29.0)
+
+[node name="Pole" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights/PostC"]
+position = Vector3(0, 2.3, 0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(0.12, 4.6, 0.12)
+
+[node name="Arm" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights/PostC"]
+position = Vector3(0.42, 4.25, 0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(0.86, 0.08, 0.08)
+
+[node name="Lamp" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights/PostC"]
+position = Vector3(0.78, 3.86, 0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_accent")
+scale = Vector3(0.18, 0.28, 0.18)
+
+[node name="Light" type="OmniLight3D" parent="WorldAnchors/WorldBuild/CityZone/StreetLights/PostC"]
+position = Vector3(0.78, 3.78, 0)
+light_color = Color(0.905882, 0.788235, 0.611765, 1)
+light_energy = 0.0
+omni_range = 9.0
+
+[node name="SignalCabinet" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone"]
+position = Vector3(-4.9, 0.65, -10.5)
+
+[node name="Base" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/SignalCabinet"]
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(0.7, 1.2, 0.4)
+
+[node name="Core" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/SignalCabinet"]
+position = Vector3(0, 0.1, 0.23)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_signal")
+scale = Vector3(0.34, 0.5, 0.06)
+
+[node name="Label" type="Label3D" parent="WorldAnchors/WorldBuild/CityZone/SignalCabinet"]
+position = Vector3(0, 0.78, 0.24)
+font_size = 18
+modulate = Color(0.890196, 0.901961, 0.909804, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 3
+text = "GRID SIGNAL"
+
+[node name="CrateA" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone"]
+position = Vector3(-2.8, 0.44, -14.0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(1.1, 0.9, 0.9)
+
+[node name="CrateB" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone"]
+position = Vector3(2.6, 0.38, -20.0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(1.4, 0.75, 1.1)
+
+[node name="BarrierA" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone"]
+position = Vector3(0, 0.54, -24.5)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_accent")
+scale = Vector3(2.6, 1.0, 0.18)
+
+[node name="ScareFigure" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone"]
+visible = false
+position = Vector3(9, 2.3, -17)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_figure")
+scale = Vector3(0.9, 3.3, 0.5)
+
+[node name="FractureLayer" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone"]
+visible = false
+
+[node name="DebrisA" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/FractureLayer"]
+position = Vector3(-1.8, 0.58, -12)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_fracture")
+scale = Vector3(1.9, 0.7, 1.4)
+
+[node name="DebrisB" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/FractureLayer"]
+position = Vector3(2.4, 0.72, -27)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_fracture")
+scale = Vector3(2.2, 0.9, 2.0)
+
+[node name="RiftSphere" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/FractureLayer"]
+position = Vector3(0, 1.2, -35)
+mesh = SubResource("SphereMesh_ijpm8")
+material_override = SubResource("StandardMaterial3D_fracture")
+scale = Vector3(2.1, 3.2, 2.1)
+
+[node name="RiftLight" type="OmniLight3D" parent="WorldAnchors/WorldBuild/CityZone/FractureLayer"]
+position = Vector3(0, 1.4, -35)
+light_color = Color(0.713726, 0.596078, 1, 1)
+light_energy = 0.0
+omni_range = 8.0
+
+[node name="CourtyardRoute" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone"]
+visible = false
+
+[node name="BackStreet" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute"]
+position = Vector3(0, 0.12, -52)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_asphalt")
+scale = Vector3(5.4, 0.08, 12.0)
+
+[node name="CourtyardPad" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute"]
+position = Vector3(0, 0.1, -62)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(7.8, 0.18, 10.5)
+
+[node name="ArchLeft" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute"]
+position = Vector3(-2.7, 1.8, -43.5)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(0.24, 3.8, 0.24)
+
+[node name="ArchRight" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute"]
+position = Vector3(2.7, 1.8, -43.5)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(0.24, 3.8, 0.24)
+
+[node name="ArchTop" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute"]
+position = Vector3(0, 3.55, -43.5)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(5.2, 0.22, 0.24)
+
+[node name="FenceLeft" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute"]
+position = Vector3(-6.1, 1.6, -54.0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(0.16, 3.2, 16.0)
+
+[node name="FenceRight" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute"]
+position = Vector3(6.1, 1.6, -54.0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(0.16, 3.2, 16.0)
+
+[node name="RelayA" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute"]
+position = Vector3(-5.6, 0.72, -47.0)
+
+[node name="Base" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/RelayA"]
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(0.58, 1.0, 0.42)
+
+[node name="Core" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/RelayA"]
+position = Vector3(0, 0.08, 0.24)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_signal")
+scale = Vector3(0.24, 0.36, 0.06)
+
+[node name="Label" type="Label3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/RelayA"]
+position = Vector3(0, 0.72, 0.22)
+font_size = 14
+modulate = Color(0.890196, 0.901961, 0.909804, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 3
+text = "RELAY A"
+
+[node name="RelayB" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute"]
+position = Vector3(4.8, 0.72, -58.0)
+
+[node name="Base" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/RelayB"]
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(0.58, 1.0, 0.42)
+
+[node name="Core" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/RelayB"]
+position = Vector3(0, 0.08, 0.24)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_signal")
+scale = Vector3(0.24, 0.36, 0.06)
+
+[node name="Label" type="Label3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/RelayB"]
+position = Vector3(0, 0.72, 0.22)
+font_size = 14
+modulate = Color(0.890196, 0.901961, 0.909804, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 3
+text = "RELAY B"
+
+[node name="ServiceCrate" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute"]
+position = Vector3(-1.8, 0.6, -55.2)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(1.4, 1.2, 1.1)
+
+[node name="CableMound" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute"]
+position = Vector3(2.1, 0.32, -50.4)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_accent")
+scale = Vector3(1.2, 0.34, 1.8)
+
+[node name="SafehouseDoor" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute"]
+position = Vector3(0, 0, -66.0)
+
+[node name="Threshold" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(0, 0.08, 0.9)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(3.4, 0.16, 1.3)
+
+[node name="FrameLeft" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(-2.1, 1.8, 0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(0.32, 3.8, 0.42)
+
+[node name="FrameRight" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(2.1, 1.8, 0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(0.32, 3.8, 0.42)
+
+[node name="FrameTop" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(0, 3.55, 0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(4.5, 0.26, 0.42)
+
+[node name="DoorLeft" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(-0.92, 1.72, 0.08)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(1.0, 3.1, 0.12)
+
+[node name="DoorRight" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(0.92, 1.72, 0.08)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(1.0, 3.1, 0.12)
+
+[node name="DoorBlocker" type="StaticBody3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(0, 1.7, 0.08)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor/DoorBlocker"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(1.5, 1.5, 0.32)
+
+[node name="Sign" type="Label3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(0, 4.12, 0.22)
+font_size = 26
+modulate = Color(0.972549, 0.882353, 0.631373, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 5
+text = "SHELTER // NODE 7"
+
+[node name="Light" type="OmniLight3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(0, 3.2, 1.1)
+light_color = Color(0.882353, 0.792157, 0.623529, 1)
+light_energy = 0.0
+omni_range = 8.0
+
+[node name="InteriorFloor" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(0, 0.08, -5.8)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(4.4, 0.16, 7.0)
+
+[node name="InteriorLeft" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(-4.1, 2.0, -5.8)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(0.28, 4.2, 7.0)
+
+[node name="InteriorRight" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(4.1, 2.0, -5.8)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(0.28, 4.2, 7.0)
+
+[node name="InteriorBack" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(0, 2.0, -12.5)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(4.2, 4.2, 0.28)
+
+[node name="InteriorCeiling" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(0, 4.0, -5.8)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(4.2, 0.18, 7.0)
+
+[node name="Desk" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(-1.5, 0.7, -10.4)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(1.2, 0.6, 0.6)
+
+[node name="Bench" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(1.6, 0.45, -9.0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_concrete")
+scale = Vector3(1.4, 0.35, 0.5)
+
+[node name="FieldLog" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(-1.45, 1.02, -10.25)
+
+[node name="Pad" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor/FieldLog"]
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(0.3, 0.02, 0.22)
+
+[node name="Sheet" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor/FieldLog"]
+position = Vector3(0, 0.04, 0)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_signal")
+scale = Vector3(0.24, 0.01, 0.18)
+
+[node name="Tag" type="Label3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor/FieldLog"]
+position = Vector3(0, 0.12, 0.14)
+font_size = 11
+modulate = Color(0.972549, 0.882353, 0.631373, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 3
+text = "FIELD LOG"
+
+[node name="Terminal" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(1.1, 0.9, -10.0)
+
+[node name="Base" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor/Terminal"]
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(0.65, 0.88, 0.48)
+
+[node name="Core" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor/Terminal"]
+position = Vector3(0, 0.18, 0.28)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_signal")
+scale = Vector3(0.24, 0.32, 0.06)
+
+[node name="Label" type="Label3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor/Terminal"]
+position = Vector3(0, 0.82, 0.28)
+font_size = 12
+modulate = Color(0.878431, 0.901961, 0.921569, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 3
+text = "AUX GRID"
+
+[node name="Light" type="OmniLight3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor/Terminal"]
+position = Vector3(0, 0.36, 0.72)
+light_color = Color(0.933333, 0.603922, 0.290196, 1)
+light_energy = 0.0
+omni_range = 4.8
+
+[node name="WallMap" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor"]
+position = Vector3(0, 2.15, -12.18)
+
+[node name="Panel" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor/WallMap"]
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_board")
+scale = Vector3(2.6, 1.25, 0.06)
+
+[node name="Core" type="MeshInstance3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor/WallMap"]
+position = Vector3(0, 0, 0.05)
+mesh = SubResource("BoxMesh_1ivqv")
+material_override = SubResource("StandardMaterial3D_signal")
+scale = Vector3(2.32, 1.02, 0.03)
+
+[node name="Title" type="Label3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor/WallMap"]
+position = Vector3(0, 0.42, 0.08)
+font_size = 16
+modulate = Color(0.94902, 0.964706, 0.988235, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 4
+text = "DISTRICT MAP // SECTOR EAST"
+
+[node name="Body" type="Label3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor/WallMap"]
+position = Vector3(0, -0.08, 0.08)
+font_size = 12
+modulate = Color(0.0509804, 0.0784314, 0.12549, 1)
+outline_modulate = Color(0.780392, 0.901961, 1, 1)
+outline_size = 2
+text = "SHELTER 7 -> HOUSING SPINE\nFAULT LINE -> SERVICE SHAFTS"
+
+[node name="Light" type="OmniLight3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/SafehouseDoor/WallMap"]
+position = Vector3(0, 0, 0.62)
+light_color = Color(0.647059, 0.831373, 1, 1)
+light_energy = 0.0
+omni_range = 6.0
+
+[node name="Bounds" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute"]
+
+[node name="Left" type="StaticBody3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/Bounds"]
+position = Vector3(-6.5, 2.2, -55.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/Bounds/Left"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(0.35, 2.3, 13.5)
+
+[node name="Right" type="StaticBody3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/Bounds"]
+position = Vector3(6.5, 2.2, -55.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/Bounds/Right"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(0.35, 2.3, 13.5)
+
+[node name="Back" type="StaticBody3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/Bounds"]
+position = Vector3(0, 2.2, -73.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/WorldBuild/CityZone/CourtyardRoute/Bounds/Back"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(6.6, 2.3, 0.35)
+
+[node name="Bounds" type="Node3D" parent="WorldAnchors/WorldBuild/CityZone"]
+
+[node name="Left" type="StaticBody3D" parent="WorldAnchors/WorldBuild/CityZone/Bounds"]
+position = Vector3(-8.7, 2.2, -33)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/WorldBuild/CityZone/Bounds/Left"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(0.4, 2.4, 34.0)
+
+[node name="Right" type="StaticBody3D" parent="WorldAnchors/WorldBuild/CityZone/Bounds"]
+position = Vector3(8.7, 2.2, -33)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/WorldBuild/CityZone/Bounds/Right"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(0.4, 2.4, 34.0)
+
+[node name="Back" type="StaticBody3D" parent="WorldAnchors/WorldBuild/CityZone/Bounds"]
+position = Vector3(0, 2.2, -71.0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldAnchors/WorldBuild/CityZone/Bounds/Back"]
+shape = SubResource("BoxShape3D_0yadm")
+scale = Vector3(9.0, 2.4, 0.4)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TransitionRect" type="ColorRect" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.101961, 0.121569, 0.188235, 1)
+
+[node name="ScareOverlay" type="ColorRect" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.560784, 0.133333, 0.133333, 1)
+
+[node name="TitleCard" type="PanelContainer" parent="HUD"]
+offset_left = 24.0
+offset_top = 22.0
+offset_right = 620.0
+offset_bottom = 178.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/TitleCard"]
+offset_right = 596.0
+offset_bottom = 156.0
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TitleCard/MarginContainer"]
+offset_right = 560.0
+offset_bottom = 124.0
+
+[node name="Title" type="Label" parent="HUD/TitleCard/MarginContainer/VBoxContainer"]
+text = "EIDARA / Platform Seven"
+
+[node name="Meta" type="Label" parent="HUD/TitleCard/MarginContainer/VBoxContainer"]
+text = "Бесшовный срез: метро, seam и первый городской выход"
+
+[node name="WorldLabel" type="Label" parent="HUD/TitleCard/MarginContainer/VBoxContainer"]
+text = "Состояние мира: Veris"
+
+[node name="ObjectivePanel" type="PanelContainer" parent="HUD"]
+offset_left = 24.0
+offset_top = 196.0
+offset_right = 620.0
+offset_bottom = 314.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/ObjectivePanel"]
+offset_right = 596.0
+offset_bottom = 118.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="ObjectiveLabel" type="Label" parent="HUD/ObjectivePanel/MarginContainer"]
+offset_right = 564.0
+offset_bottom = 90.0
+autowrap_mode = 3
+text = ""
+
+[node name="PromptPanel" type="PanelContainer" parent="HUD"]
+anchors_preset = 10
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -310.0
+offset_top = -86.0
+offset_right = 310.0
+offset_bottom = -24.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/PromptPanel"]
+offset_right = 620.0
+offset_bottom = 62.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 10
+
+[node name="PromptLabel" type="Label" parent="HUD/PromptPanel/MarginContainer"]
+offset_right = 588.0
+offset_bottom = 42.0
+horizontal_alignment = 1
+autowrap_mode = 3
+text = ""
+
+[node name="JournalPanel" type="PanelContainer" parent="HUD"]
+visible = false
+offset_left = 1228.0
+offset_top = 28.0
+offset_right = 1860.0
+offset_bottom = 818.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/JournalPanel"]
+offset_right = 632.0
+offset_bottom = 790.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="JournalLabel" type="RichTextLabel" parent="HUD/JournalPanel/MarginContainer"]
+offset_right = 600.0
+offset_bottom = 758.0
+scroll_active = true
+text = ""
+
+[node name="StatusLabel" type="Label" parent="HUD"]
+offset_left = 24.0
+offset_top = 338.0
+offset_right = 880.0
+offset_bottom = 404.0
+autowrap_mode = 3
+text = ""

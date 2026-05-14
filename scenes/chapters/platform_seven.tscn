@@ -1,0 +1,252 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/chapters/platform_seven.gd" id="1_cfbjd"]
+[ext_resource type="PackedScene" path="res://subway/subway.tscn" id="2_m4t8y"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kf1wk"]
+size = Vector3(0.16, 2.8, 0.08)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qwxm"]
+albedo_color = Color(0.854902, 0.792157, 1, 1)
+emission_enabled = true
+emission = Color(0.615686, 0.403922, 1, 1)
+emission_energy_multiplier = 3.2
+cull_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0efiu"]
+size = Vector3(2.5, 3, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1r6i4"]
+size = Vector3(6, 3, 6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_q6kbt"]
+radius = 0.18
+height = 0.36
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3u6m1"]
+albedo_color = Color(0.729412, 0.639216, 1, 1)
+emission_enabled = true
+emission = Color(0.545098, 0.470588, 1, 1)
+emission_energy_multiplier = 2.4
+
+[node name="PlatformSeven" type="Node3D"]
+script = ExtResource("1_cfbjd")
+
+[node name="Metro" parent="." instance=ExtResource("2_m4t8y")]
+
+[node name="ChapterObjects" type="Node3D" parent="."]
+
+[node name="Seam" type="Node3D" parent="ChapterObjects"]
+
+[node name="SeamMesh" type="MeshInstance3D" parent="ChapterObjects/Seam"]
+mesh = SubResource("BoxMesh_kf1wk")
+material_override = SubResource("StandardMaterial3D_6qwxm")
+
+[node name="SeamLight" type="OmniLight3D" parent="ChapterObjects/Seam"]
+light_color = Color(0.666667, 0.52549, 1, 1)
+light_energy = 0.0
+omni_range = 5.5
+
+[node name="SeamTrigger" type="Area3D" parent="ChapterObjects"]
+monitoring = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChapterObjects/SeamTrigger"]
+shape = SubResource("BoxShape3D_0efiu")
+
+[node name="FractureGoalTrigger" type="Area3D" parent="ChapterObjects"]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChapterObjects/FractureGoalTrigger"]
+shape = SubResource("BoxShape3D_1r6i4")
+
+[node name="ResonanceTrail" type="Node3D" parent="ChapterObjects"]
+visible = false
+
+[node name="MarkerA" type="Node3D" parent="ChapterObjects/ResonanceTrail"]
+visible = false
+
+[node name="Mesh" type="MeshInstance3D" parent="ChapterObjects/ResonanceTrail/MarkerA"]
+mesh = SubResource("SphereMesh_q6kbt")
+material_override = SubResource("StandardMaterial3D_3u6m1")
+
+[node name="Light" type="OmniLight3D" parent="ChapterObjects/ResonanceTrail/MarkerA"]
+light_color = Color(0.709804, 0.643137, 1, 1)
+light_energy = 0.0
+omni_range = 4.0
+
+[node name="MarkerB" type="Node3D" parent="ChapterObjects/ResonanceTrail"]
+visible = false
+
+[node name="Mesh" type="MeshInstance3D" parent="ChapterObjects/ResonanceTrail/MarkerB"]
+mesh = SubResource("SphereMesh_q6kbt")
+material_override = SubResource("StandardMaterial3D_3u6m1")
+
+[node name="Light" type="OmniLight3D" parent="ChapterObjects/ResonanceTrail/MarkerB"]
+light_color = Color(0.709804, 0.643137, 1, 1)
+light_energy = 0.0
+omni_range = 4.0
+
+[node name="MarkerC" type="Node3D" parent="ChapterObjects/ResonanceTrail"]
+visible = false
+
+[node name="Mesh" type="MeshInstance3D" parent="ChapterObjects/ResonanceTrail/MarkerC"]
+mesh = SubResource("SphereMesh_q6kbt")
+material_override = SubResource("StandardMaterial3D_3u6m1")
+
+[node name="Light" type="OmniLight3D" parent="ChapterObjects/ResonanceTrail/MarkerC"]
+light_color = Color(0.709804, 0.643137, 1, 1)
+light_energy = 0.0
+omni_range = 4.0
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TransitionRect" type="ColorRect" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.235294, 0.2, 0.352941, 1)
+
+[node name="TitleCard" type="PanelContainer" parent="HUD"]
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 500.0
+offset_bottom = 156.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/TitleCard"]
+offset_right = 476.0
+offset_bottom = 136.0
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 14
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TitleCard/MarginContainer"]
+offset_right = 440.0
+offset_bottom = 108.0
+
+[node name="ChapterTitle" type="Label" parent="HUD/TitleCard/MarginContainer/VBoxContainer"]
+text = "The Subway's Hum"
+
+[node name="ChapterMeta" type="Label" parent="HUD/TitleCard/MarginContainer/VBoxContainer"]
+text = "ECHO / Book I"
+
+[node name="WorldLabel" type="Label" parent="HUD/TitleCard/MarginContainer/VBoxContainer"]
+text = "Состояние мира: Veris"
+
+[node name="ObjectivePanel" type="PanelContainer" parent="HUD"]
+offset_left = 24.0
+offset_top = 176.0
+offset_right = 514.0
+offset_bottom = 286.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/ObjectivePanel"]
+offset_right = 490.0
+offset_bottom = 110.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="ObjectiveLabel" type="Label" parent="HUD/ObjectivePanel/MarginContainer"]
+offset_right = 458.0
+offset_bottom = 82.0
+autowrap_mode = 3
+text = ""
+
+[node name="PromptPanel" type="PanelContainer" parent="HUD"]
+anchors_preset = 10
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -86.0
+offset_right = 260.0
+offset_bottom = -26.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/PromptPanel"]
+offset_right = 520.0
+offset_bottom = 60.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 10
+
+[node name="PromptLabel" type="Label" parent="HUD/PromptPanel/MarginContainer"]
+offset_right = 488.0
+offset_bottom = 40.0
+horizontal_alignment = 1
+autowrap_mode = 3
+text = ""
+
+[node name="JournalPanel" type="PanelContainer" parent="HUD"]
+visible = false
+offset_left = 1018.0
+offset_top = 24.0
+offset_right = 1510.0
+offset_bottom = 760.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/JournalPanel"]
+offset_right = 492.0
+offset_bottom = 736.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="JournalLabel" type="RichTextLabel" parent="HUD/JournalPanel/MarginContainer"]
+offset_right = 460.0
+offset_bottom = 704.0
+scroll_active = true
+text = ""
+
+[node name="StatusLabel" type="Label" parent="HUD"]
+offset_left = 24.0
+offset_top = 310.0
+offset_right = 770.0
+offset_bottom = 366.0
+autowrap_mode = 3
+text = ""
+
+[node name="CompletionPanel" type="PanelContainer" parent="HUD"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -120.0
+offset_right = 250.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/CompletionPanel"]
+offset_right = 500.0
+offset_bottom = 240.0
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/CompletionPanel/MarginContainer"]
+offset_right = 464.0
+offset_bottom = 204.0
+alignment = 1
+
+[node name="Title" type="Label" parent="HUD/CompletionPanel/MarginContainer/VBoxContainer"]
+horizontal_alignment = 1
+text = "Глава Завершена"
+
+[node name="Body" type="Label" parent="HUD/CompletionPanel/MarginContainer/VBoxContainer"]
+autowrap_mode = 3
+horizontal_alignment = 1
+text = "Platform Seven теперь работает как двусоставная локация: обычный Veris и Fracture."
+
+[node name="ReturnButton" type="Button" parent="HUD/CompletionPanel/MarginContainer/VBoxContainer"]
+text = "Вернуться В Кампанию"

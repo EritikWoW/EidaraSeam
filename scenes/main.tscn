@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://ctc033flh8swr"]
+
+[ext_resource type="PackedScene" path="res://scenes/eidara_world.tscn" id="1_cjqre"]
+
+[node name="Main" unique_id=1641657083 instance=ExtResource("1_cjqre")]
+
+[node name="Metro" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16143227, 0.16132355, 0.016712189)
+
+[node name="Panel" parent="WorldAnchors/PlatformBranding/HeaderSign" index="0"]
+transform = Transform3D(4.8, 0, 0, 0, 1.3, 0, 0, 0, 0.08, 0, 0, 0)
+
+[node name="Title" parent="WorldAnchors/PlatformBranding/HeaderSign" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0.09)
+
+[node name="Subtitle" parent="WorldAnchors/PlatformBranding/HeaderSign" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28, 0.09)
+
+[node name="Panel" parent="WorldAnchors/PlatformBranding/GamePoster" index="0"]
+transform = Transform3D(1.7, 0, 0, 0, 2.3, 0, 0, 0, 0.08, 0, 0, 0)
+
+[node name="Title" parent="WorldAnchors/PlatformBranding/GamePoster" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, 0.09)
+
+[node name="Body" parent="WorldAnchors/PlatformBranding/GamePoster" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28, 0.09)
+
+[node name="Panel" parent="WorldAnchors/PlatformBranding/BookPoster" index="0"]
+transform = Transform3D(1.9, 0, 0, 0, 2.4, 0, 0, 0, 0.08, 0, 0, 0)
+
+[node name="Title" parent="WorldAnchors/PlatformBranding/BookPoster" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0.09)
+
+[node name="Body" parent="WorldAnchors/PlatformBranding/BookPoster" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38, 0.09)
+
+[node name="Ring" parent="WorldAnchors/PortalRig" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="BackCore" parent="WorldAnchors/PortalRig" index="2"]
+transform = Transform3D(-1, 0, 2.5351817e-06, 0, 1, 0, -2.5351817e-06, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/PosterA" index="0"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/PosterB" index="0"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/PortalArea" index="0"]
+transform = Transform3D(1.1, 0, 0, 0, 1.5, 0, 0, 0, 1.1, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/AnchorArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/ExitGateArea" index="0"]
+transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/CityEntryArea" index="0"]
+transform = Transform3D(2.5, 0, 0, 0, 1.2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/ScareAreaA" index="0"]
+transform = Transform3D(4, 0, 0, 0, 1.4, 0, 0, 0, 3.2, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/ScareAreaB" index="0"]
+transform = Transform3D(4, 0, 0, 0, 1.4, 0, 0, 0, 3.2, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/CityGoalArea" index="0"]
+transform = Transform3D(2.6, 0, 0, 0, 1.4, 0, 0, 0, 2.2, 0, 0, 0)
+
+[node name="Core" parent="WorldAnchors/WorldBuild/AnchorShard" index="0"]
+transform = Transform3D(1.2, 0, 0, 0, 1.8, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="Floor" parent="WorldAnchors/WorldBuild/MetroExit" index="0"]
+transform = Transform3D(3.8, 0, 0, 0, 0.14, 0, 0, 0, 14, 0, 0.05, -6)
+
+[node name="FrameLeft" parent="WorldAnchors/WorldBuild/MetroExit" index="1"]
+transform = Transform3D(0.4, 0, 0, 0, 3.4, 0, 0, 0, 0.4, -2.3, 1.6, -0.2)
+
+[node name="FrameRight" parent="WorldAnchors/WorldBuild/MetroExit" index="2"]
+transform = Transform3D(0.4, 0, 0, 0, 3.4, 0, 0, 0, 0.4, 2.3, 1.6, -0.2)
+
+[node name="FrameTop" parent="WorldAnchors/WorldBuild/MetroExit" index="3"]
+transform = Transform3D(4.9, 0, 0, 0, 0.36, 0, 0, 0, 0.46, 0, 3.3, -0.2)
+
+[node name="GateLeft" parent="WorldAnchors/WorldBuild/MetroExit" index="4"]
+transform = Transform3D(1.1, 0, 0, 0, 2.7, 0, 0, 0, 0.14, -1.05, 1.6, -0.1)
+
+[node name="GateRight" parent="WorldAnchors/WorldBuild/MetroExit" index="5"]
+transform = Transform3D(1.1, 0, 0, 0, 2.7, 0, 0, 0, 0.14, 1.05, 1.6, -0.1)
+
+[node name="GateBlocker" parent="WorldAnchors/WorldBuild/MetroExit" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, -0.1)
+
+[node name="CollisionShape3D" parent="WorldAnchors/WorldBuild/MetroExit/GateBlocker" index="0"]
+transform = Transform3D(1.6, 0, 0, 0, 1.4, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="ExitSign" parent="WorldAnchors/WorldBuild/MetroExit" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.95, -0.22)
+
+[node name="CeilingLight" parent="WorldAnchors/WorldBuild/MetroExit" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3, -2.2)
+
+[node name="Ground" parent="WorldAnchors/WorldBuild/CityZone" index="0"]
+transform = Transform3D(16, 0, 0, 0, 0.2, 0, 0, 0, 38, 0, 0.1, -18)
+
+[node name="Street" parent="WorldAnchors/WorldBuild/CityZone" index="1"]
+transform = Transform3D(7, 0, 0, 0, 0.08, 0, 0, 0, 34, 0, 0.12, -18)
+
+[node name="SidewalkLeft" parent="WorldAnchors/WorldBuild/CityZone" index="2"]
+transform = Transform3D(2.2, 0, 0, 0, 0.18, 0, 0, 0, 34, -6.6, 0.18, -18)
+
+[node name="SidewalkRight" parent="WorldAnchors/WorldBuild/CityZone" index="3"]
+transform = Transform3D(2.2, 0, 0, 0, 0.18, 0, 0, 0, 34, 6.6, 0.18, -18)
+
+[node name="BuildingA" parent="WorldAnchors/WorldBuild/CityZone" index="4"]
+transform = Transform3D(6.2, 0, 0, 0, 11, 0, 0, 0, 7, -10.5, 5.5, -8)
+
+[node name="BuildingB" parent="WorldAnchors/WorldBuild/CityZone" index="5"]
+transform = Transform3D(7.4, 0, 0, 0, 13, 0, 0, 0, 9, 11, 6.5, -14)
+
+[node name="BuildingC" parent="WorldAnchors/WorldBuild/CityZone" index="6"]
+transform = Transform3D(8, 0, 0, 0, 16, 0, 0, 0, 10.5, -12.2, 8, -28)
+
+[node name="BuildingD" parent="WorldAnchors/WorldBuild/CityZone" index="7"]
+transform = Transform3D(8.4, 0, 0, 0, 14.4, 0, 0, 0, 12, 12.5, 7.2, -34)
+
+[node name="Billboard" parent="WorldAnchors/WorldBuild/CityZone" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 4, -24)
+
+[node name="Panel" parent="WorldAnchors/WorldBuild/CityZone/Billboard" index="0"]
+transform = Transform3D(2.8, 0, 0, 0, 1.5, 0, 0, 0, 0.08, 0, 0, 0)
+
+[node name="Title" parent="WorldAnchors/WorldBuild/CityZone/Billboard" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, 0.09)
+
+[node name="Body" parent="WorldAnchors/WorldBuild/CityZone/Billboard" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0.09)
+
+[node name="ScareFigure" parent="WorldAnchors/WorldBuild/CityZone" index="9"]
+transform = Transform3D(0.9, 0, 0, 0, 3.3, 0, 0, 0, 0.5, 9, 2.3, -17)
+
+[node name="DebrisA" parent="WorldAnchors/WorldBuild/CityZone/FractureLayer" index="0"]
+transform = Transform3D(1.9, 0, 0, 0, 0.7, 0, 0, 0, 1.4, -1.8, 0.58, -12)
+
+[node name="DebrisB" parent="WorldAnchors/WorldBuild/CityZone/FractureLayer" index="1"]
+transform = Transform3D(2.2, 0, 0, 0, 0.9, 0, 0, 0, 2, 2.4, 0.72, -27)
+
+[node name="RiftSphere" parent="WorldAnchors/WorldBuild/CityZone/FractureLayer" index="2"]
+transform = Transform3D(2.1, 0, 0, 0, 3.2, 0, 0, 0, 2.1, 0, 1.2, -35)
+
+[node name="RiftLight" parent="WorldAnchors/WorldBuild/CityZone/FractureLayer" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -35)
+
+[node name="Left" parent="WorldAnchors/WorldBuild/CityZone/Bounds" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7, 2.2, -18)
+
+[node name="CollisionShape3D" parent="WorldAnchors/WorldBuild/CityZone/Bounds/Left" index="0"]
+transform = Transform3D(0.4, 0, 0, 0, 2.4, 0, 0, 0, 18, 0, 0, 0)
+
+[node name="Right" parent="WorldAnchors/WorldBuild/CityZone/Bounds" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7, 2.2, -18)
+
+[node name="CollisionShape3D" parent="WorldAnchors/WorldBuild/CityZone/Bounds/Right" index="0"]
+transform = Transform3D(0.4, 0, 0, 0, 2.4, 0, 0, 0, 18, 0, 0, 0)
+
+[node name="Back" parent="WorldAnchors/WorldBuild/CityZone/Bounds" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, -39)
+
+[node name="CollisionShape3D" parent="WorldAnchors/WorldBuild/CityZone/Bounds/Back" index="0"]
+transform = Transform3D(9, 0, 0, 0, 2.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="MarginContainer" parent="HUD/TitleCard" index="0"]
+layout_mode = 2
+
+[node name="VBoxContainer" parent="HUD/TitleCard/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="Title" parent="HUD/TitleCard/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="Meta" parent="HUD/TitleCard/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="WorldLabel" parent="HUD/TitleCard/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="MarginContainer" parent="HUD/ObjectivePanel" index="0"]
+layout_mode = 2
+
+[node name="ObjectiveLabel" parent="HUD/ObjectivePanel/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="PromptPanel" parent="HUD" index="4"]
+anchors_preset = 7
+
+[node name="MarginContainer" parent="HUD/PromptPanel" index="0"]
+layout_mode = 2
+
+[node name="PromptLabel" parent="HUD/PromptPanel/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="MarginContainer" parent="HUD/JournalPanel" index="0"]
+layout_mode = 2
+
+[node name="JournalLabel" parent="HUD/JournalPanel/MarginContainer" index="0"]
+layout_mode = 2
