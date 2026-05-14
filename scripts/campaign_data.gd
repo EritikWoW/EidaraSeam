@@ -8,11 +8,11 @@ const CHAPTERS := [
 		"title": "The Subway's Hum",
 		"scene_path": "res://scenes/chapters/platform_seven.tscn",
 		"playable": true,
-		"status": "Playable prototype",
-		"normal_state": "Поздний, почти обычный Veris: рабочая платформа, поезд, станцийный свет и тревожный гул под поверхностью.",
-		"fracture_state": "Та же станция после memory-slip: грязь, баррикады, фиолетовый свет, мягкие завалы и нарушенная логика пространства.",
-		"goal": "Услышать гул, увидеть seam и сделать первый осознанный шаг в разлом.",
-		"future_hook": "Roman, мальчик с флейтой и катастрофа Platform Seven становятся входом в Eidara."
+		"status": "Playable vertical slice",
+		"normal_state": "Late, almost normal Veris: working platform, train, station lights and unsettling hum beneath the surface.",
+		"fracture_state": "Same station after memory-slip: dirt, barricades, purple light, soft debris and broken spatial logic.",
+		"goal": "Hear the hum, see the seam and take the first conscious step into the Fracture.",
+		"future_hook": "Roman, the flute boy and the Platform Seven disaster become the gateway into Eidara."
 	},
 	{
 		"id": "echo_cartographer_lantern",
@@ -22,10 +22,10 @@ const CHAPTERS := [
 		"scene_path": "",
 		"playable": false,
 		"status": "Design ready",
-		"normal_state": "Тихие помещения обслуживания и архивные коридоры, где карта города еще выглядит рациональной.",
-		"fracture_state": "Фонари памяти, ложные схемы и проходы, которые ведут across, а не away.",
-		"goal": "Научить игрока читать город как карту желаний, а не как транспортную сеть.",
-		"future_hook": "Отсюда начнется переход к Mechanary и deeper Eidara logic."
+		"normal_state": "Quiet service rooms and archive corridors where the city map still looks rational.",
+		"fracture_state": "Memory lanterns, false schemes and paths that lead across, not away.",
+		"goal": "Teach the player to read the city as a map of desire rather than a transport network.",
+		"future_hook": "The transition to Mechanary and deeper Eidara logic begins here."
 	},
 	{
 		"id": "echo_mechanary_heart",
@@ -35,10 +35,10 @@ const CHAPTERS := [
 		"scene_path": "",
 		"playable": false,
 		"status": "Campaign planned",
-		"normal_state": "Остатки понятной городской архитектуры и человеческой памяти.",
-		"fracture_state": "Механарии, швы, катwalks и комнаты, которые помнят слишком буквально.",
-		"goal": "Сместить игру из мистического метро в полноценную навигацию по Eidara.",
-		"future_hook": "Раскрытие природы Echo и Roman's truth."
+		"normal_state": "Remnants of understandable urban architecture and human memory.",
+		"fracture_state": "Mechanaries, seams, catwalks and rooms that remember too literally.",
+		"goal": "Shift the game from a mystical subway to full-scale navigation through Eidara.",
+		"future_hook": "Revelation of the Echo nature and Roman's truth."
 	},
 	{
 		"id": "fracture_second_hum",
@@ -48,10 +48,10 @@ const CHAPTERS := [
 		"scene_path": "",
 		"playable": false,
 		"status": "Campaign planned",
-		"normal_state": "Утренний Veris с работающей транспортной системой и ощущением рутины.",
-		"fracture_state": "Внезапное исчезновение одного слоя звука и город, который начинает говорить инструкциями.",
-		"goal": "Ввести Lena и Marek как grounded witnesses к расширяющемуся кризису.",
-		"future_hook": "Second hum меняет игру из личной истории в ансамблевую."
+		"normal_state": "Morning Veris with a functioning transport system and a sense of routine.",
+		"fracture_state": "Sudden disappearance of one layer of sound and a city that starts speaking in instructions.",
+		"goal": "Introduce Lena and Marek as grounded witnesses to the expanding crisis.",
+		"future_hook": "Second hum shifts the game from a personal story to an ensemble one."
 	},
 	{
 		"id": "fracture_library_unfinished",
@@ -61,10 +61,10 @@ const CHAPTERS := [
 		"scene_path": "",
 		"playable": false,
 		"status": "Campaign planned",
-		"normal_state": "Архивы, студии и служебные комнаты, которые еще можно принять за реальность.",
-		"fracture_state": "Незавершенные предметы, стеклянные коридоры и пространства, удаляющие отражения.",
-		"goal": "Сделать память, запись и незавершенность полноценными механиками.",
-		"future_hook": "Irena, Thomas и Sol формируют новое ядро партии."
+		"normal_state": "Archives, studios and service rooms that could still be mistaken for reality.",
+		"fracture_state": "Unfinished objects, glass corridors and spaces that remove reflections.",
+		"goal": "Turn memory, recording and incompleteness into full gameplay mechanics.",
+		"future_hook": "Irena, Thomas and Sol form the new core of the party."
 	},
 	{
 		"id": "fracture_platform_seven_again",
@@ -74,10 +74,10 @@ const CHAPTERS := [
 		"scene_path": "",
 		"playable": false,
 		"status": "Campaign planned",
-		"normal_state": "Повтор знакомой станции с тревожным ощущением déjà vu.",
-		"fracture_state": "Группа героев собирается у черной двери и вынуждена ответить городу своим ритмом.",
-		"goal": "Вернуть игрока в ту же локацию, но уже через ансамбль и накопленную память.",
-		"future_hook": "Отсюда начинается переход к third tone."
+		"normal_state": "Repeat of the familiar station with an unsettling sense of déjà vu.",
+		"fracture_state": "A group of heroes gathers at the black door and is forced to answer the city with their own rhythm.",
+		"goal": "Return the player to the same location but through an ensemble and accumulated memory.",
+		"future_hook": "The transition to the third tone begins here."
 	},
 	{
 		"id": "fracture_third_tone",
@@ -87,10 +87,10 @@ const CHAPTERS := [
 		"scene_path": "",
 		"playable": false,
 		"status": "Campaign planned",
-		"normal_state": "Системы города, карты и схемы, которые еще пытаются выглядеть твердо.",
-		"fracture_state": "Тон в промежутке между всеми системами, новая seam-line на карте и город, научившийся новой ноте.",
-		"goal": "Закрыть вторую книгу на системном уровне и открыть путь к следующему циклу.",
-		"future_hook": "Jun получает доказательство, что город стал чем-то большим, чем инфраструктура."
+		"normal_state": "City systems, maps and schemes that still try to look solid.",
+		"fracture_state": "A tone in the gap between all systems, a new seam-line on the map and a city that learned a new note.",
+		"goal": "Close the second book on a systemic level and open the way to the next cycle.",
+		"future_hook": "Jun receives proof that the city has become something more than infrastructure."
 	}
 ]
 
@@ -116,26 +116,26 @@ static func get_default_chapter_id() -> String:
 
 static func build_chapter_overview(chapter: Dictionary, completed: bool = false) -> String:
 	if chapter.is_empty():
-		return "Глава не найдена."
+		return "Chapter not found."
 
 	var lines: Array[String] = []
 	lines.append("%s / %s" % [str(chapter.get("book", "EIDARA")), str(chapter.get("chapter_label", ""))])
 	lines.append(str(chapter.get("title", "")))
 	lines.append("")
-	lines.append("Статус: %s" % ("Завершена в текущем билде" if completed else str(chapter.get("status", "В работе"))))
+	lines.append("Status: %s" % ("Completed in current build" if completed else str(chapter.get("status", "In development"))))
 	lines.append("")
-	lines.append("Обычный мир")
+	lines.append("Normal World")
 	lines.append(str(chapter.get("normal_state", "")))
 	lines.append("")
-	lines.append("Разлом")
+	lines.append("Fracture")
 	lines.append(str(chapter.get("fracture_state", "")))
 	lines.append("")
-	lines.append("Игровая цель")
+	lines.append("Gameplay Goal")
 	lines.append(str(chapter.get("goal", "")))
 	lines.append("")
-	lines.append("Дальше")
+	lines.append("Next")
 	lines.append(str(chapter.get("future_hook", "")))
 	lines.append("")
-	lines.append("Правило кампании")
-	lines.append("Каждая глава строится как одна локация в двух состояниях: Veris и Fracture.")
+	lines.append("Campaign Rule")
+	lines.append("Each chapter is built as a single location in two states: Veris and Fracture.")
 	return "\n".join(lines)
