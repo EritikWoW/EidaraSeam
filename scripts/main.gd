@@ -55,7 +55,7 @@ func _apply_selection(index: int) -> void:
 	selected_chapter_id = chapter_ids[index]
 	var chapter := CampaignData.get_chapter(selected_chapter_id)
 	details_label.text = CampaignData.build_chapter_overview(chapter, GameContext.has_completed(selected_chapter_id))
-	status_label.text = "Кампания строится как набор локаций в двух состояниях: Veris и Fracture."
+	status_label.text = "Campaign consists of locations in two states: Veris and Fracture."
 	start_button.disabled = not bool(chapter.get("playable", false))
 	GameContext.set_selected_chapter(selected_index)
 
@@ -70,16 +70,16 @@ func _launch_selected_chapter() -> void:
 func _launch_chapter(chapter_id: String) -> void:
 	var chapter := CampaignData.get_chapter(chapter_id)
 	if chapter.is_empty():
-		status_label.text = "Не удалось найти выбранную главу."
+		status_label.text = "Could not find selected chapter."
 		return
 
 	if not bool(chapter.get("playable", false)):
-		status_label.text = "Эта глава уже встроена в кампанию, но пока не собрана как игровая сцена."
+		status_label.text = "This chapter is integrated into the map but not yet playable."
 		return
 
 	var packed_scene := load(str(chapter.get("scene_path", ""))) as PackedScene
 	if packed_scene == null:
-		status_label.text = "Сцена главы не загрузилась."
+		status_label.text = "Failed to load chapter scene."
 		return
 
 	_clear_current_chapter()
@@ -140,4 +140,4 @@ func _on_request_return_to_campaign() -> void:
 	_restore_selection()
 	_refresh_continue_button()
 	_show_menu(true)
-	status_label.text = "Глава закрыта. Выбирай следующую локацию кампании."
+	status_label.text = "Chapter closed. Select next campaign location."

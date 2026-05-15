@@ -1,206 +1,120 @@
-[gd_scene format=3 uid="uid://ctc033flh8swr"]
+[gd_scene load_steps=3 format=3 uid="uid://ctc033flh8swr"]
 
-[ext_resource type="PackedScene" path="res://scenes/eidara_world.tscn" id="1_cjqre"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main_script"]
 
-[node name="Main" unique_id=1641657083 instance=ExtResource("1_cjqre")]
+[node name="Main" type="Node"]
+script = ExtResource("1_main_script")
 
-[node name="Metro" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16143227, 0.16132355, 0.016712189)
+[node name="WorldHost" type="Node3D" parent="."]
 
-[node name="Panel" parent="WorldAnchors/PlatformBranding/HeaderSign" index="0"]
-transform = Transform3D(4.8, 0, 0, 0, 1.3, 0, 0, 0, 0.08, 0, 0, 0)
+[node name="FrontEnd" type="CanvasLayer" parent="."]
 
-[node name="Title" parent="WorldAnchors/PlatformBranding/HeaderSign" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0.09)
+[node name="MenuRoot" type="Control" parent="FrontEnd"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Subtitle" parent="WorldAnchors/PlatformBranding/HeaderSign" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28, 0.09)
+[node name="Backdrop" type="ColorRect" parent="FrontEnd/MenuRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0509804, 0.0784314, 1)
 
-[node name="Panel" parent="WorldAnchors/PlatformBranding/GamePoster" index="0"]
-transform = Transform3D(1.7, 0, 0, 0, 2.3, 0, 0, 0, 0.08, 0, 0, 0)
+[node name="CampaignPanel" type="PanelContainer" parent="FrontEnd/MenuRoot/Backdrop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -400.0
+offset_right = 600.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Title" parent="WorldAnchors/PlatformBranding/GamePoster" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, 0.09)
-
-[node name="Body" parent="WorldAnchors/PlatformBranding/GamePoster" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28, 0.09)
-
-[node name="Panel" parent="WorldAnchors/PlatformBranding/BookPoster" index="0"]
-transform = Transform3D(1.9, 0, 0, 0, 2.4, 0, 0, 0, 0.08, 0, 0, 0)
-
-[node name="Title" parent="WorldAnchors/PlatformBranding/BookPoster" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0.09)
-
-[node name="Body" parent="WorldAnchors/PlatformBranding/BookPoster" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38, 0.09)
-
-[node name="Ring" parent="WorldAnchors/PortalRig" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="BackCore" parent="WorldAnchors/PortalRig" index="2"]
-transform = Transform3D(-1, 0, 2.5351817e-06, 0, 1, 0, -2.5351817e-06, 0, -1, 0, 0, 0)
-
-[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/PosterA" index="0"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 0.4, 0, 0, 0)
-
-[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/PosterB" index="0"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 0.4, 0, 0, 0)
-
-[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/PortalArea" index="0"]
-transform = Transform3D(1.1, 0, 0, 0, 1.5, 0, 0, 0, 1.1, 0, 0, 0)
-
-[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/AnchorArea" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/ExitGateArea" index="0"]
-transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/CityEntryArea" index="0"]
-transform = Transform3D(2.5, 0, 0, 0, 1.2, 0, 0, 0, 2, 0, 0, 0)
-
-[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/ScareAreaA" index="0"]
-transform = Transform3D(4, 0, 0, 0, 1.4, 0, 0, 0, 3.2, 0, 0, 0)
-
-[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/ScareAreaB" index="0"]
-transform = Transform3D(4, 0, 0, 0, 1.4, 0, 0, 0, 3.2, 0, 0, 0)
-
-[node name="CollisionShape3D" parent="WorldAnchors/QuestAreas/CityGoalArea" index="0"]
-transform = Transform3D(2.6, 0, 0, 0, 1.4, 0, 0, 0, 2.2, 0, 0, 0)
-
-[node name="Core" parent="WorldAnchors/WorldBuild/AnchorShard" index="0"]
-transform = Transform3D(1.2, 0, 0, 0, 1.8, 0, 0, 0, 1.2, 0, 0, 0)
-
-[node name="Floor" parent="WorldAnchors/WorldBuild/MetroExit" index="0"]
-transform = Transform3D(3.8, 0, 0, 0, 0.14, 0, 0, 0, 14, 0, 0.05, -6)
-
-[node name="FrameLeft" parent="WorldAnchors/WorldBuild/MetroExit" index="1"]
-transform = Transform3D(0.4, 0, 0, 0, 3.4, 0, 0, 0, 0.4, -2.3, 1.6, -0.2)
-
-[node name="FrameRight" parent="WorldAnchors/WorldBuild/MetroExit" index="2"]
-transform = Transform3D(0.4, 0, 0, 0, 3.4, 0, 0, 0, 0.4, 2.3, 1.6, -0.2)
-
-[node name="FrameTop" parent="WorldAnchors/WorldBuild/MetroExit" index="3"]
-transform = Transform3D(4.9, 0, 0, 0, 0.36, 0, 0, 0, 0.46, 0, 3.3, -0.2)
-
-[node name="GateLeft" parent="WorldAnchors/WorldBuild/MetroExit" index="4"]
-transform = Transform3D(1.1, 0, 0, 0, 2.7, 0, 0, 0, 0.14, -1.05, 1.6, -0.1)
-
-[node name="GateRight" parent="WorldAnchors/WorldBuild/MetroExit" index="5"]
-transform = Transform3D(1.1, 0, 0, 0, 2.7, 0, 0, 0, 0.14, 1.05, 1.6, -0.1)
-
-[node name="GateBlocker" parent="WorldAnchors/WorldBuild/MetroExit" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, -0.1)
-
-[node name="CollisionShape3D" parent="WorldAnchors/WorldBuild/MetroExit/GateBlocker" index="0"]
-transform = Transform3D(1.6, 0, 0, 0, 1.4, 0, 0, 0, 0.35, 0, 0, 0)
-
-[node name="ExitSign" parent="WorldAnchors/WorldBuild/MetroExit" index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.95, -0.22)
-
-[node name="CeilingLight" parent="WorldAnchors/WorldBuild/MetroExit" index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3, -2.2)
-
-[node name="Ground" parent="WorldAnchors/WorldBuild/CityZone" index="0"]
-transform = Transform3D(16, 0, 0, 0, 0.2, 0, 0, 0, 38, 0, 0.1, -18)
-
-[node name="Street" parent="WorldAnchors/WorldBuild/CityZone" index="1"]
-transform = Transform3D(7, 0, 0, 0, 0.08, 0, 0, 0, 34, 0, 0.12, -18)
-
-[node name="SidewalkLeft" parent="WorldAnchors/WorldBuild/CityZone" index="2"]
-transform = Transform3D(2.2, 0, 0, 0, 0.18, 0, 0, 0, 34, -6.6, 0.18, -18)
-
-[node name="SidewalkRight" parent="WorldAnchors/WorldBuild/CityZone" index="3"]
-transform = Transform3D(2.2, 0, 0, 0, 0.18, 0, 0, 0, 34, 6.6, 0.18, -18)
-
-[node name="BuildingA" parent="WorldAnchors/WorldBuild/CityZone" index="4"]
-transform = Transform3D(6.2, 0, 0, 0, 11, 0, 0, 0, 7, -10.5, 5.5, -8)
-
-[node name="BuildingB" parent="WorldAnchors/WorldBuild/CityZone" index="5"]
-transform = Transform3D(7.4, 0, 0, 0, 13, 0, 0, 0, 9, 11, 6.5, -14)
-
-[node name="BuildingC" parent="WorldAnchors/WorldBuild/CityZone" index="6"]
-transform = Transform3D(8, 0, 0, 0, 16, 0, 0, 0, 10.5, -12.2, 8, -28)
-
-[node name="BuildingD" parent="WorldAnchors/WorldBuild/CityZone" index="7"]
-transform = Transform3D(8.4, 0, 0, 0, 14.4, 0, 0, 0, 12, 12.5, 7.2, -34)
-
-[node name="Billboard" parent="WorldAnchors/WorldBuild/CityZone" index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 4, -24)
-
-[node name="Panel" parent="WorldAnchors/WorldBuild/CityZone/Billboard" index="0"]
-transform = Transform3D(2.8, 0, 0, 0, 1.5, 0, 0, 0, 0.08, 0, 0, 0)
-
-[node name="Title" parent="WorldAnchors/WorldBuild/CityZone/Billboard" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, 0.09)
-
-[node name="Body" parent="WorldAnchors/WorldBuild/CityZone/Billboard" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0.09)
-
-[node name="ScareFigure" parent="WorldAnchors/WorldBuild/CityZone" index="9"]
-transform = Transform3D(0.9, 0, 0, 0, 3.3, 0, 0, 0, 0.5, 9, 2.3, -17)
-
-[node name="DebrisA" parent="WorldAnchors/WorldBuild/CityZone/FractureLayer" index="0"]
-transform = Transform3D(1.9, 0, 0, 0, 0.7, 0, 0, 0, 1.4, -1.8, 0.58, -12)
-
-[node name="DebrisB" parent="WorldAnchors/WorldBuild/CityZone/FractureLayer" index="1"]
-transform = Transform3D(2.2, 0, 0, 0, 0.9, 0, 0, 0, 2, 2.4, 0.72, -27)
-
-[node name="RiftSphere" parent="WorldAnchors/WorldBuild/CityZone/FractureLayer" index="2"]
-transform = Transform3D(2.1, 0, 0, 0, 3.2, 0, 0, 0, 2.1, 0, 1.2, -35)
-
-[node name="RiftLight" parent="WorldAnchors/WorldBuild/CityZone/FractureLayer" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -35)
-
-[node name="Left" parent="WorldAnchors/WorldBuild/CityZone/Bounds" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7, 2.2, -18)
-
-[node name="CollisionShape3D" parent="WorldAnchors/WorldBuild/CityZone/Bounds/Left" index="0"]
-transform = Transform3D(0.4, 0, 0, 0, 2.4, 0, 0, 0, 18, 0, 0, 0)
-
-[node name="Right" parent="WorldAnchors/WorldBuild/CityZone/Bounds" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7, 2.2, -18)
-
-[node name="CollisionShape3D" parent="WorldAnchors/WorldBuild/CityZone/Bounds/Right" index="0"]
-transform = Transform3D(0.4, 0, 0, 0, 2.4, 0, 0, 0, 18, 0, 0, 0)
-
-[node name="Back" parent="WorldAnchors/WorldBuild/CityZone/Bounds" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, -39)
-
-[node name="CollisionShape3D" parent="WorldAnchors/WorldBuild/CityZone/Bounds/Back" index="0"]
-transform = Transform3D(9, 0, 0, 0, 2.4, 0, 0, 0, 0.4, 0, 0, 0)
-
-[node name="MarginContainer" parent="HUD/TitleCard" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="FrontEnd/MenuRoot/Backdrop/CampaignPanel"]
 layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" parent="HUD/TitleCard/MarginContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="Title" parent="HUD/TitleCard/MarginContainer/VBoxContainer" index="0"]
+[node name="Header" type="Label" parent="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "EIDARA // CAMPAIGN"
+horizontal_alignment = 1
 
-[node name="Meta" parent="HUD/TitleCard/MarginContainer/VBoxContainer" index="1"]
+[node name="StatusLabel" type="Label" parent="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+text = "Select a chapter to begin."
+horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="WorldLabel" parent="HUD/TitleCard/MarginContainer/VBoxContainer" index="2"]
+[node name="Body" type="HBoxContainer" parent="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
 
-[node name="MarginContainer" parent="HUD/ObjectivePanel" index="0"]
+[node name="ChapterList" type="ItemList" parent="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer/Body"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
 
-[node name="ObjectiveLabel" parent="HUD/ObjectivePanel/MarginContainer" index="0"]
+[node name="DetailsPanel" type="PanelContainer" parent="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer/Body"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="PromptPanel" parent="HUD" index="4"]
-anchors_preset = 7
-
-[node name="MarginContainer" parent="HUD/PromptPanel" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer/Body/DetailsPanel"]
 layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="PromptLabel" parent="HUD/PromptPanel/MarginContainer" index="0"]
+[node name="DetailsLabel" type="RichTextLabel" parent="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer/Body/DetailsPanel/MarginContainer"]
 layout_mode = 2
+bbcode_enabled = true
+text = "Chapter details will appear here."
 
-[node name="MarginContainer" parent="HUD/JournalPanel" index="0"]
+[node name="Footer" type="HBoxContainer" parent="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
 
-[node name="JournalLabel" parent="HUD/JournalPanel/MarginContainer" index="0"]
+[node name="StartButton" type="Button" parent="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer/Footer"]
+custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
+text = "START CHAPTER"
+
+[node name="ContinueButton" type="Button" parent="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer/Footer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "CONTINUE"
+
+[node name="FadeRect" type="ColorRect" parent="FrontEnd"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="item_activated" from="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer/Body/ChapterList" to="." method="_on_chapter_list_item_activated"]
+[connection signal="item_selected" from="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer/Body/ChapterList" to="." method="_on_chapter_list_item_selected"]
+[connection signal="pressed" from="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer/Footer/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="FrontEnd/MenuRoot/Backdrop/CampaignPanel/MarginContainer/VBoxContainer/Footer/ContinueButton" to="." method="_on_continue_pressed"]
